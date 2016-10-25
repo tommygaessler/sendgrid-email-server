@@ -4,8 +4,6 @@ const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 
 router.post('/', (req, res, next) => {
 
-  console.log('hit');
-
   const name = req.body.name;
   const username = req.params.username;
   const helper = require('sendgrid').mail;
