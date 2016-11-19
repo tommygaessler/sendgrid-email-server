@@ -26,4 +26,25 @@ router.post('/', (req, res, next) => {
   });
 });
 
+router.post('/alexa', (req, res, next) => {
+  const name = req.body.name;
+  const helper = require('sendgrid').mail;
+  const from_email = new helper.Email('tommy.gaessler@gmail.com');
+  const to_email = new helper.Email(req.body.to_email);
+  const subject = `Joke From Tommy`;
+  const content = new helper.Content('text/plain', `Hey ${name}! Check out this joke: ${req.body.message}`);
+  const mail = new helper.Mail(from_email, subject, to_email, content);
+
+  const request = sg.emptyRequest({
+    method: 'POST',
+    path: '/v3/mail/send',
+    body: mail.toJSON()
+  });
+
+  sg.API(request, function(error, response) {
+    res.status(200).json({
+      message: `Email Sent to ${name}`
+    });
+  });
+});
 module.exports = router;
