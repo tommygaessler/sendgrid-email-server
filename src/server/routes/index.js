@@ -43,7 +43,7 @@ router.post('/alexa', (req, res, next) => {
 
   sg.API(request, function(error, response) {
     res.status(200).json({
-      message: `Email Sent to ${name}`
+      message: `Email Successfully Sent to ${name} via SendGrid`
     });
   });
 });
