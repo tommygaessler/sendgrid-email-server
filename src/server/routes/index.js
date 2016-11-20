@@ -32,7 +32,7 @@ router.post('/alexa', (req, res, next) => {
   const from_email = new helper.Email('tommy@letfly.com');
   const to_email = new helper.Email(req.body.to_email);
   const subject = `Message From Tommy @LetFly`;
-  const content = new helper.Content('text/plain', `Hey ${name}! Want to reply to this email with your voice? Download my Amazon Alexa skill! ${req.body.message}`);
+  const content = new helper.Content('text/plain', `Hey ${name}! Want to reply to this email with your voice? Download my Amazon Alexa skill!`);
   const mail = new helper.Mail(from_email, subject, to_email, content);
 
   const request = sg.emptyRequest({
