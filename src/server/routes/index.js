@@ -31,7 +31,7 @@ router.post('/alexa', (req, res, next) => {
   const helper = require('sendgrid').mail;
   const from_email = new helper.Email('tommy.gaessler@gmail.com');
   const to_email = new helper.Email(req.body.to_email);
-  const subject = `Joke From Tommy`;
+  const subject = `Message From Tommy`;
   const content = new helper.Content('text/plain', `Hey ${name}! Check out this joke: ${req.body.message}`);
   const mail = new helper.Mail(from_email, subject, to_email, content);
 
