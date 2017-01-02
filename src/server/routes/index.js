@@ -26,6 +26,8 @@ router.post('/', (req, res, next) => {
   });
 });
 
+// Sends Email From Amazon Alexa Skill
+
 router.post('/alexa', (req, res, next) => {
   const name = req.body.name;
   const helper = require('sendgrid').mail;
