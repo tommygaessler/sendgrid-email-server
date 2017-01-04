@@ -37,8 +37,6 @@ router.post('/alexa', (req, res, next) => {
   const content = new helper.Content('text/plain', `Hey ${name}! Want to reply to this email with your voice? Download my Amazon Alexa skill!`);
   const mail = new helper.Mail(from_email, subject, to_email, content);
 
-  console.log(name);
-
   const request = sg.emptyRequest({
     method: 'POST',
     path: '/v3/mail/send',
